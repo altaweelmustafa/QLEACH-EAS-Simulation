@@ -83,6 +83,6 @@ def run_leach(network, secure=False):
         if not alive:
             break
         heads = elect_cluster_heads(alive, r)
-        delivered, dropped = assign_and_transmit(network.nodes, heads, secure)
+        assign_and_transmit(network.nodes, heads, secure)
         transmit_to_bs(heads, network.bs, secure)
         network.record_round()

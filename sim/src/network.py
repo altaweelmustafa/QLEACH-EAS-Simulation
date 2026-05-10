@@ -56,13 +56,13 @@ class BaseStation:
         return 0.0
 
 class Network:
-    def __init__(self):
-        np.random.seed(SEED)
+    def __init__(self, seed=SEED):
+        np.random.seed(seed)
         self.bs    = BaseStation()
         self.nodes = self._create_nodes()
         self.rounds = ROUNDS
+        self.field_size = FIELD_SIZE
 
-        # per-round stats
         self.alive_history  = []
         self.energy_history = []
         self.dead_history   = []
@@ -117,6 +117,11 @@ class Network:
             if a == 0:
                 return i
         return len(self.alive_history)
+
+    def packet_delivery_ratio(self):
+        sent    = sum(n.packets_sent    for n in self.nodes)
+        dropped = sum(n.packets_dropped for n in self.nodes)
+        return sent / max(sent + dropped, 1)
 
     def print_summary(self, label="Network"):
         print(f"\n── {label} ───────────────────────────────")

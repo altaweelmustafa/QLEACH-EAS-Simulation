@@ -1,7 +1,6 @@
 """
 Here I save the power consumption parameters for all components.
-Uses the first order radio model (Heinzelman et al. 2000),
-standard for WSN and LEACH simulations.
+Uses the first order radio model (Heinzelman et al. 2000) which is a standard for WSN and LEACH simulations.
 AES-128-GCM overhead modelled for ESP32-C3.
 """
 
