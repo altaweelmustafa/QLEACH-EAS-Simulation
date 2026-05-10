@@ -56,3 +56,26 @@ def plot_security_overhead():
     plt.tight_layout()
     plt.savefig('results/security_overhead.png', dpi=150)
     plt.show()
+
+
+def plot_20_runs(results):
+    runs    = list(range(1, 21))
+    plt.figure(figsize=(10, 5))
+    plt.plot(runs, results['leach']['lifetime'],
+             label='LEACH', color='red',
+             linewidth=2, marker='o', markersize=4)
+    plt.plot(runs, results['leach_aes']['lifetime'],
+             label='LEACH+AES', color='orange',
+             linewidth=2, marker='s', markersize=4,
+             linestyle='--')
+    plt.plot(runs, results['qleach']['lifetime'],
+             label='QLEACH-EAS', color='blue',
+             linewidth=2, marker='^', markersize=4)
+    plt.xlabel('Run')
+    plt.ylabel('Network Lifetime (rounds)')
+    plt.title('Network Lifetime Across 20 Independent Runs')
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.savefig('results/20_runs.png', dpi=150)
+    plt.show()

@@ -7,7 +7,7 @@ AES-128-GCM overhead modelled for ESP32-C3.
 # First order radio model
 E_ELEC      = 50e-9      # J/bit  (Tx/Rx electronics)
 E_AMP       = 100e-12    # J/bit/m² (Tx amplifier)
-E_DA        = 5e-9       # J/bit  (data aggregation at CH)
+E_DA        = 5e-9       # J/bit  (data aggregation at CH) 
 PACKET_SIZE = 512        # bytes
 PKT_BITS    = PACKET_SIZE * 8  # bits
 

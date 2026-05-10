@@ -9,7 +9,7 @@ import numpy as np
 from network  import Network
 from leach    import run_leach
 from qleach_eas import run_qleach_eas
-from plot     import plot_alive_nodes, plot_energy, plot_security_overhead
+from plot     import plot_alive_nodes, plot_energy, plot_security_overhead, plot_20_runs
 from security import security_overhead_ratio, PACKET_SIZE
 
 os.makedirs('results', exist_ok=True)
@@ -83,3 +83,4 @@ print(f"\n  AES-128-GCM overhead  : {ratio*100:.2f}%")
 plot_alive_nodes(last['leach'], last['leach_aes'], last['qleach'])
 plot_energy(last['leach'], last['leach_aes'], last['qleach'])
 plot_security_overhead()
+plot_20_runs(results)
